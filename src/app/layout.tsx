@@ -34,8 +34,7 @@ export default function RootLayout({
         <AuthProvider>
           <App>{children}</App>
         </AuthProvider>
-
-<Toaster position="bottom-center" reverseOrder= {false} />
+        <Toaster position="bottom-center" reverseOrder={false} />
       </body>
     </html>
   );
