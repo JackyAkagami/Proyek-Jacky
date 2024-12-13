@@ -1,24 +1,18 @@
-"use client"
+"use client";
 import Login from "@/components/admin-apanel/Login";
 import { useAppSelector } from "@/redux/hook";
 import { useSession } from "next-auth/react";
 import React from "react";
 
-const layout = () => {
+const Layout = () => {
+  const isLoadingg = useAppSelector((store) => store.LoadingReducer);
+  const { data: session } = useSession();
 
-    const isloading = useAppSelector((store) => store.LoadingReducer);
-    const {data: session} = useSession()
+  if (!session?.user) {
+    return <Login />;
+  }
 
-    if (!session?.user){
-        return <Login />;
-    }
-
-
-
-
-  return (
-    <div>layout</div>
-  )
+  return <div>layout</div>;
 };
 
-export default layout;
+export default Layout;
